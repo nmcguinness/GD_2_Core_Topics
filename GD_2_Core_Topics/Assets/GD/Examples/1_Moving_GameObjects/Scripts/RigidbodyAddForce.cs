@@ -3,7 +3,7 @@
 //NYC
 public class RigidbodyAddForce : MonoBehaviour
 {
-   
+   [Header("hgfhgf")]
     [Space]
     [SerializeField]
     [Tooltip("Set the magnititude of the force applied in the local forward direction")]
@@ -21,6 +21,12 @@ public class RigidbodyAddForce : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+#if UNITY_EDITOR
+        Debug.Log("sdfsdf");
+#endif
+
+
     }
 
     // Called once every fixed update (based on refresh rate of Physics system - see Edit/Project Settings/Time)
