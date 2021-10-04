@@ -1,8 +1,7 @@
 ###
-# GD Specific additions
+# GD Specific packages and additions
 ###
-# /GD_2_Core_Topics/[Aa]ssets/Plugins/*
-# /GD_2_Core_Topics/[Aa]ssets/TextMesh Pro/
+/GD_2_Core_Topics/[Aa]ssets/TextMesh Pro/
 
 ###
 # Unity folders and files
