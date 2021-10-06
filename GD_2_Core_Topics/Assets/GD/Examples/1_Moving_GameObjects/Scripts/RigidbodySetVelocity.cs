@@ -4,7 +4,6 @@
 
 public class RigidbodySetVelocity : MonoBehaviour
 {
-
     [SerializeField]
     [Tooltip("Set the magnititude of the force applied in the local forward direction")]
     [Range(1, 500)]
@@ -13,22 +12,20 @@ public class RigidbodySetVelocity : MonoBehaviour
     private Rigidbody rb;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
     }
 
     // Called when the script is being loaded
-    void Awake()
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * Time.deltaTime * 100;
-        //   GetComponent<Rigidbody>().velocity = transform.forward * Time.deltaTime * forceMultiplier;
-
+        //rb = GetComponent<Rigidbody>();
+        //rb.velocity = transform.forward * Time.deltaTime * forceMultiplier;
+        GetComponent<Rigidbody>().velocity = transform.forward * Time.deltaTime * forceMultiplier;
     }
 
     // Called once every fixed update (based on refresh rate of Physics system - see Edit/Project Settings/Time)
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-     }
+    }
 }
