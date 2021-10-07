@@ -3,7 +3,7 @@
 //NYC
 public class RigidbodyAddForce : MonoBehaviour
 {
-   [Header("hgfhgf")]
+    [Header("hgfhgf")]
     [Space]
     [SerializeField]
     [Tooltip("Set the magnititude of the force applied in the local forward direction")]
@@ -11,26 +11,24 @@ public class RigidbodyAddForce : MonoBehaviour
     private float forceMultiplier = 100;
 
     private Rigidbody rb;
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    // Start is called before the first frame update
+    private void Start()
+    {
     }
 
     // Called when the script is being loaded
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
 
-#if UNITY_EDITOR
-        Debug.Log("sdfsdf");
-#endif
-
-
+        //#if UNITY_EDITOR
+        //        Debug.Log("sdfsdf");
+        //#endif
     }
 
     // Called once every fixed update (based on refresh rate of Physics system - see Edit/Project Settings/Time)
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         rb.AddForce(transform.forward * forceMultiplier * Time.deltaTime); //ForceMode?
     }

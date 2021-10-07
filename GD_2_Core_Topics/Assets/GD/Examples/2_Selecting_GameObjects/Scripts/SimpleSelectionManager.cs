@@ -20,6 +20,7 @@ public class SimpleSelectionManager : MonoBehaviour
     private void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         RaycastHit hitInfo = new RaycastHit();
         if (Physics.Raycast(ray, out hitInfo))
         {
