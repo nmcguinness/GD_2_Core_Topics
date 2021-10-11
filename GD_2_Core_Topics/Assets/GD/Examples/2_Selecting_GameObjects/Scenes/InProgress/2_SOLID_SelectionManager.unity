@@ -354,9 +354,9 @@ GameObject:
   m_Component:
   - component: {fileID: 830393215}
   - component: {fileID: 830393216}
-  - component: {fileID: 830393219}
   - component: {fileID: 830393218}
   - component: {fileID: 830393217}
+  - component: {fileID: 830393219}
   m_Layer: 0
   m_Name: SelectionManager
   m_TagString: Untagged
