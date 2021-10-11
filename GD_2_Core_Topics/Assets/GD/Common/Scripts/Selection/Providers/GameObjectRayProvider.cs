@@ -14,5 +14,12 @@ namespace GD.Selection
             currentRay = new Ray(rayOrigin.transform.position, rayOrigin.transform.forward);
             return currentRay;
         }
+
+        // Implement this OnDrawGizmos if you want to draw gizmos that are also pickable and always drawn
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(currentRay);
+        }
     }
 }
