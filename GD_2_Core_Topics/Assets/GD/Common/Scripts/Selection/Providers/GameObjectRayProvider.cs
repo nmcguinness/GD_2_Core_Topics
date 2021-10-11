@@ -2,15 +2,17 @@
 
 namespace GD.Selection
 {
-    public class GameObjectRayProvider : IRayProvider
+    public class GameObjectRayProvider : MonoBehaviour, IRayProvider
     {
         [SerializeField]
         private GameObject rayOrigin;
 
+        private Ray currentRay;
+
         public Ray CreateRay()
         {
-            return new Ray(rayOrigin.transform.position,
-                rayOrigin.transform.forward);
+            currentRay = new Ray(rayOrigin.transform.position, rayOrigin.transform.forward);
+            return currentRay;
         }
     }
 }
