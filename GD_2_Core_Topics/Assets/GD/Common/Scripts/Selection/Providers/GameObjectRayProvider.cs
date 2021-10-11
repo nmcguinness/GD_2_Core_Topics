@@ -4,9 +4,13 @@ namespace GD.Selection
 {
     public class GameObjectRayProvider : IRayProvider
     {
+        [SerializeField]
+        private GameObject rayOrigin;
+
         public Ray CreateRay()
         {
-            throw new System.NotImplementedException();
+            return new Ray(rayOrigin.transform.position,
+                rayOrigin.transform.forward);
         }
     }
 }

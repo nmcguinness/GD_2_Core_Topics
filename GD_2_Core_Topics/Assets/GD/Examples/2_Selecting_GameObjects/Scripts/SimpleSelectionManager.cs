@@ -1,5 +1,8 @@
 using UnityEngine;
 
+//SOLID
+//Single Responsibility Principle
+
 public class SimpleSelectionManager : MonoBehaviour
 {
     [SerializeField]
