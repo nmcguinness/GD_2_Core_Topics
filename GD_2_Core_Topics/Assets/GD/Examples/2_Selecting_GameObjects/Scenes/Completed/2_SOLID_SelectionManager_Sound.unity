@@ -502,7 +502,7 @@ MonoBehaviour:
   targetGroundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  targetOffset: 0
+  targetOffset: 0.01
   scaleFactor: 5
 --- !u!114 &830393218
 MonoBehaviour:
