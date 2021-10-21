@@ -9,7 +9,7 @@ public class RotateObject : MonoBehaviour
 
     [SerializeField]
     [Range(0, 90)]
-    private float rotationAngle = 1;
+    private FloatVariable rotationAngle;     //private float rotationAngle = 1;
 
     [SerializeField]
     private Vector3 rotationAxis = Vector3.up;
@@ -17,6 +17,6 @@ public class RotateObject : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        transform.Rotate(rotationAxis, rotationAngle);
+        transform.Rotate(rotationAxis, rotationAngle.Value);
     }
 }
