@@ -21,4 +21,10 @@ MonoBehaviour:
   DropClip: {fileID: 0}
   LivesForMs: 0
   RespawnEveryMs: 0
-  buffs: []
+  buffs:
+  - Attribute: 0
+    Value: 0
+  - Attribute: 0
+    Value: 0
+  - Attribute: 0
+    Value: 0
