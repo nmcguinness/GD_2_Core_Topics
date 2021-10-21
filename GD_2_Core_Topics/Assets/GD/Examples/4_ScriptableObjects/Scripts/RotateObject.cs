@@ -8,7 +8,6 @@ public class RotateObject : MonoBehaviour
     private Transform transform;
 
     [SerializeField]
-    [Range(0, 90)]
     private FloatVariable rotationAngle;     //private float rotationAngle = 1;
 
     [SerializeField]

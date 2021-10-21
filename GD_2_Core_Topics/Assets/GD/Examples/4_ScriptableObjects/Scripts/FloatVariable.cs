@@ -17,3 +17,10 @@ public class FloatVariable : ScriptableObject
         }
     }
 }
+
+[System.Serializable]
+internal class Weapon
+{
+}
+
+//bool, Vector3, List<Weapon>
