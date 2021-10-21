@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13bade310db623842ab37f45446cfb09, type: 3}
-  m_Name: FloatVariable 1
+  m_Script: {fileID: 11500000, guid: d45ab133b78b2534cafc476d53cfe89c, type: 3}
+  m_Name: Vector3Variable
   m_EditorClassIdentifier: 
-  value: 0
+  Name: 
+  Description: 
+  Value: {x: 0, y: 0, z: 0}

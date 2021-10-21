@@ -240,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 324482539}
   rotationAngle: {fileID: 11400000, guid: 333aafadf60eb5845843ef4eb98e8926, type: 2}
-  rotationAxis: {x: 0, y: 1, z: 1}
+  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!65 &324482536
 BoxCollider:
   m_ObjectHideFlags: 0
