@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
     [SerializeField]
-    private Transform transform;
+    private Transform target;
 
     [SerializeField]
     private FloatVariable rotationAngle;     //private float rotationAngle = 1;
@@ -16,6 +14,6 @@ public class RotateObject : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        transform.Rotate(rotationAxis, rotationAngle.Value);
+        target.Rotate(rotationAxis, rotationAngle.Value);
     }
 }

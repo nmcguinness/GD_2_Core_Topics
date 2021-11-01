@@ -45,4 +45,23 @@
     {
         Any, Building, None, Unit, Vehicle
     }
+
+    /// <summary>
+    /// Used to indicate priority (e.g. completion of objectives)
+    /// </summary>
+    /// <see cref="GD.ScriptableTypes.RuntimeGameObjectiveList"/>
+    public enum PriorityType : sbyte
+    {
+        //assigning explicit values here allows us to sort whatever entity (e.g. GameObjective) use this type
+        Low = 0, Normal = 1, High = 2, Critical = 3
+    }
+
+    /// <summary>
+    /// Used to specify if an onscreen object (e.g. a waypoint) is always shown
+    /// </summary>
+    /// <see cref="GD.ScriptableTypes.RuntimeGameObjectiveList"/>
+    public enum VisibilityStrategyType : sbyte
+    {
+        ShowAlways, ShowWithin, ShowNever
+    }
 }
