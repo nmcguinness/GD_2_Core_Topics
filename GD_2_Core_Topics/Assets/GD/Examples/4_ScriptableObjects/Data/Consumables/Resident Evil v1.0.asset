@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dee736b7dc1df24aae2883558215dd3, type: 3}
+  m_Name: Resident Evil v1.0
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 11400000, guid: c977155125c2ab5439a26eefb9f6bace, type: 2}
+  - {fileID: 11400000, guid: 7d48b09996c4abe4ea9174fd80b2f582, type: 2}
+  startLevel: 1
+  mainMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  uiMenu: {fileID: 0}
+  lifecycleStage: 2
+  version: 0
+  lastModifiedDate: 
+  teamLead: 
+  documentationURL: 
+  currentLevel: 0

@@ -4,19 +4,42 @@ namespace GD.Selection
 {
     public class SphereCastSelector : MonoBehaviour, ISelector
     {
-        public void Check(Ray ray)
+        [SerializeField]
+        private string selectableTag = "Selectable";
+
+        [SerializeField]
+        private LayerMask layerMask;
+
+        [SerializeField]
+        [Range(0.01f, 10)]
+        private float radius = 1;
+
+        [SerializeField]
+        [Range(0, 1000)]
+        private float maxDistance = 10;
+
+        private Transform selection;
+        private RaycastHit hitInfo;
+
+        public Transform GetSelection()
         {
-            throw new System.NotImplementedException();
+            return selection;
         }
 
         public RaycastHit GetHitInfo()
         {
-            throw new System.NotImplementedException();
+            return hitInfo;
         }
 
-        public Transform GetSelection()
+        public void Check(Ray ray)
         {
-            throw new System.NotImplementedException();
+            selection = null;
+            if (Physics.SphereCast(ray, radius, out hitInfo, maxDistance, layerMask.value))
+            {
+                var currentSelection = hitInfo.transform;
+                if (currentSelection.CompareTag(selectableTag))
+                    selection = currentSelection;
+            }
         }
     }
 }
