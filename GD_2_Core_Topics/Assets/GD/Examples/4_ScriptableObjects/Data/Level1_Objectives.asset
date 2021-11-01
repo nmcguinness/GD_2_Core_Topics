@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 603a0532ae0213944b9d5f5ade53c558, type: 3}
-  m_Name: CommonFootSoldierMoveSpeed
-  m_EditorClassIdentifier: 
-  Name: CFMS
-  Description: Defines move speed of Mongol foot soldier
-  Value: 14.5
+  m_Script: {fileID: 0}
+  m_Name: Level1_Objectives
+  m_EditorClassIdentifier: Assembly-CSharp:GD.ScriptableTypes:ListStringVariable
+  Name: 
+  Description: 
+  Value: 
+  list:
+  - Find the key
+  - Open the door
+  - Slay the dragon

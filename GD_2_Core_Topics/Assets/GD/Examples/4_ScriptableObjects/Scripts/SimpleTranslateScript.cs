@@ -10,14 +10,17 @@ using UnityEngine;
 public class SimpleTranslateScript : MonoBehaviour
 {
     [SerializeField]
+    private ListStringVariable levelObjectives;
+
+    [SerializeField]
     private FloatReference moveSpeed;
 
-    //[SerializeField]
-    //[Range(1, 10)]
-    //private float triggerSpeedDelta = 1;
+    [SerializeField]
+    [Range(1, 10)]
+    private float triggerSpeedDelta = 1;
 
-    //[SerializeField]
-    //private LayerMask triggerLayerMask;
+    [SerializeField]
+    private LayerMask triggerLayerMask;
 
     //set in Awake using GetComponent
     private Rigidbody rb;
@@ -36,6 +39,12 @@ public class SimpleTranslateScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if ((1 << other.gameObject.layer & triggerLayerMask.value) != 0)
+        {
+            //adding to the shared SO value
+            moveSpeed.Variable.Add(triggerSpeedDelta);
+        }
+
         //Add code to Set() the value of the FloatVariable when the attached game object crosses the line
     }
 }
