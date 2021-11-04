@@ -13,13 +13,13 @@ public class ScaleChangeBehaviour : MonoBehaviour, IHandleTicks
     private void OnDisable()
     {
         TimeTickSystem.Instance.UnregisterListener(
-            TimeTickSystem.TickRateMultiplierType.Four, HandleTick);
+            TimeTickSystem.TickRateMultiplierType.Eight, HandleTick);
     }
 
     // This function is called when the object becomes enabled and active
     private void OnEnable()
     {
         TimeTickSystem.Instance.RegisterListener(
-            TimeTickSystem.TickRateMultiplierType.Four, HandleTick);
+            TimeTickSystem.TickRateMultiplierType.Eight, HandleTick);
     }
 }
