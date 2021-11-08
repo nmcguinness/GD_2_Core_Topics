@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(
     fileName = "FloatVariable",
-    menuName = "DKIT/Types/FloatVariable",
+    menuName = "Scriptable Objects/Demo/FloatVariable",
     order = 1)]
 public class FloatVariable : ScriptableObject
 {

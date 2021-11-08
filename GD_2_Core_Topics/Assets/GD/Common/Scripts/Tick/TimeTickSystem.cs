@@ -71,7 +71,8 @@ namespace GD.Ticks
             }
         }
 
-        public void RegisterListener(TickRateMultiplierType tickRateType, UnityAction listener)
+        public void RegisterListener(TickRateMultiplierType tickRateType,
+            UnityAction listener)
         {
             switch (tickRateType)
             {

@@ -6,6 +6,7 @@ public class ScaleChangeBehaviour : MonoBehaviour, IHandleTicks
 {
     public void HandleTick()
     {
+        Debug.Log($"{TimeTickSystem.Instance.Tick}");
         Debug.Log($"Tick...{Time.realtimeSinceStartup}");
     }
 
