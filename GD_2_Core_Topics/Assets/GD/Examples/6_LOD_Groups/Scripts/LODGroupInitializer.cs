@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace GD.LOD
 {
+    /// <summary>
+    /// Sets the animation crossfade on ALL LODs
+    /// </summary>
     public class LODGroupInitializer : MonoBehaviour
     {
         [SerializeField]
