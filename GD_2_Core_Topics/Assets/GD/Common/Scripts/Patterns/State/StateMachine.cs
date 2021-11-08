@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using UnityEngine;
+
 namespace GD.State
 {
     public interface IState
@@ -12,7 +14,7 @@ namespace GD.State
         void OnExit();
     }
 
-    public class StateMachine //: IHandleTicks or //: MonoBehaviour
+    public class StateMachine : MonoBehaviour //: IHandleTicks or //: MonoBehaviour
     {
         private IState currentState;
 
