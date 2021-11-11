@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Stores data relating to a level objective
 /// </summary>
-/// <see cref="ARVR.ScriptableTypes.RuntimeGameObjectiveList"/>
+/// <see cref="GD.ScriptableTypes.RuntimeGameObjectiveList"/>
 namespace GD.GameLayout
 {
     [CreateAssetMenu(fileName = "GameObjective", menuName = "Scriptable Objects/Game/Objective")]

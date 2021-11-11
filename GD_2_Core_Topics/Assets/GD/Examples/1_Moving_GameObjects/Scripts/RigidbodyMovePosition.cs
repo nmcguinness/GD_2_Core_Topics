@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-//NYC
+[HelpURL("https://docs.unity3d.com/Manual/class-TimeManager.html")]
 public class RigidbodyMovePosition : MonoBehaviour
 {
     private Rigidbody rb;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    //// Start is called before the first frame update
+    //void Start()
+    //{
 
-    }
+    //}
 
     // Called when the script is being loaded
     void Awake()

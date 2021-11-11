@@ -12,16 +12,11 @@ namespace GD.Selection
         [Tooltip("Set de-selected (un-highlighted) material for game object")]
         private Material deselectedMaterial;
 
-        private Material oldMaterial;
-
         public void OnSelect(Transform selection)
         {
             var renderer = selection.GetComponent<Renderer>();
             if (renderer != null)
-            {
-                oldMaterial = renderer.material;
                 renderer.material = selectedMaterial;
-            }
         }
 
         public void OnDeselect(Transform selection)
@@ -30,10 +25,10 @@ namespace GD.Selection
 
             ///<remarks>we can use c# 7.0 syntax</remarks>
             ///<see cref="https://www.thomasclaudiushuber.com/2020/03/12/c-different-ways-to-check-for-null/"/>
-
+            
             if (renderer != null)
             {
-                renderer.material = (oldMaterial != null) ? oldMaterial : deselectedMaterial;
+                renderer.material = deselectedMaterial;
             }
         }
     }

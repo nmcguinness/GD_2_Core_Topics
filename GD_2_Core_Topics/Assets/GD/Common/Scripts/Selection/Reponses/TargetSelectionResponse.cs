@@ -11,27 +11,27 @@ namespace GD.Selection
         [SerializeField]
         private LayerMask targetGroundLayerMask;
 
-        [SerializeField]
-        [Tooltip("Vertical offset on target highlight above ground layer")]
-        [Range(0.01f, 10)]
-        private float targetOffset = 0.01f;
-
-        [SerializeField]
-        [Tooltip("Sets scale factor on object dimension dependent target prefab")]
-        [Range(1, 10)]
-        private float scaleFactor = 5;
-
         private GameObject currentTargetInstance;
 
-        //TODO - Make serialise field?
+        [SerializeField]
+        [Tooltip("Vertical offset on target highlight above ground layer")]
+        private float targetOffset;
+
+        private float scaleFactor = 5;
         private int rayCastDepth = 10;
 
         public void Awake()
         {
-            currentTargetInstance = Instantiate(targetSelectionPrefab,
-                Vector3.zero, Quaternion.Euler(0, 0, 0));
-
+            currentTargetInstance = Instantiate(targetSelectionPrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
             currentTargetInstance.SetActive(false);
+
+            //demo in class - remove
+            //Vector3 source = new Vector3(1, 1, 1);
+            //Vector3 target = new Vector3(5, 5, 5);
+            //Vector3 normalizedDirection = source.GetDirection(target);
+
+            //Vector3 x = new Vector3(1, 5, 10);
+            //x.ToGround(0);
         }
 
         public void OnSelect(Transform selection)
@@ -39,8 +39,7 @@ namespace GD.Selection
             if (currentTargetInstance != null)
             {
                 RaycastHit hitInfo;
-                if (Physics.Raycast(selection.position, -selection.up,
-                    out hitInfo, rayCastDepth, targetGroundLayerMask))
+                if (Physics.Raycast(selection.position, -selection.up, out hitInfo, rayCastDepth, targetGroundLayerMask))
                 {
                     currentTargetInstance.transform.position = selection.position - new Vector3(0, hitInfo.distance - targetOffset, 0);
                     float mag = selection.GetComponent<Collider>().bounds.size.magnitude / scaleFactor;

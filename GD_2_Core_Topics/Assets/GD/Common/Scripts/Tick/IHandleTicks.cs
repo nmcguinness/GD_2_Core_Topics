@@ -1,4 +1,4 @@
-﻿namespace ARVR.Ticks
+﻿namespace GD.Ticks
 {
     public interface IHandleTicks
     {

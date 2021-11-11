@@ -4,30 +4,23 @@ namespace GD.Selection
 {
     public class SoundSelectionResponse : MonoBehaviour, ISelectionResponse
     {
+
         [SerializeField]
         private AudioClip selectedAudioClip;
-
-        [SerializeField]
-        [Range(0, 1)]
-        private float selectedVolume = 0.5f;
-
-        private Transform currentSelectedTransform = null;
+        private Transform currentTransform = null;
 
         public void OnDeselect(Transform transform)
         {
-            //no sound on deselect
+            
         }
 
         public void OnSelect(Transform transform)
         {
-            if (currentSelectedTransform != transform)
-            {
-                AudioSource.PlayClipAtPoint(selectedAudioClip,
-                    transform.position, selectedVolume);
-            }
+            if(currentTransform != null && currentTransform != transform)
+                AudioSource.PlayClipAtPoint(selectedAudioClip, transform.position);
 
-            //store what we newly pointed at
-            currentSelectedTransform = transform;
+            currentTransform = transform;
+
         }
     }
 }

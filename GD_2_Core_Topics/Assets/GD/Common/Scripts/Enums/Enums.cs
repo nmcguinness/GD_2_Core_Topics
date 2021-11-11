@@ -31,7 +31,7 @@
     /// <summary>
     /// Defines the attack type of a NPC
     /// </summary>
-    /// <see cref="ARVR.Objects.PlaceableObjectData"/>
+    /// <see cref="GD.Objects.PlaceableObjectData"/>
     public enum AttackType : sbyte
     {
         Melee, Ranged
@@ -40,7 +40,7 @@
     /// <summary>
     /// Defines the type of unit that an NPC will attack
     /// </summary>
-    /// <see cref="ARVR.Objects.PlaceableObjectData"/>
+    /// <see cref="GD.Objects.PlaceableObjectData"/>
     public enum AttackTargetType : sbyte
     {
         Any, Building, None, Unit, Vehicle
