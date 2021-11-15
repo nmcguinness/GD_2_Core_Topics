@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: DD - Move left
   Description: 
-  increment: 0.061
-  maximum: 3.9
+  increment: 0.02
+  maximum: 3.25
   direction: {x: 0, y: 0, z: 1}
   easeOpenCloseCurve:
     serializedVersion: 2

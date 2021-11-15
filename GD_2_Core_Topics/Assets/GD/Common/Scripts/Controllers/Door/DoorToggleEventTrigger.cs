@@ -1,24 +1,28 @@
 ﻿using GD.Events;
 using UnityEngine;
 
-namespace GD.Controllers
+//public enum TriggerEntity : sbyte
+//{
+//    Player, NONPC, Robot
+//}
+
+public class DoorToggleEventTrigger : MonoBehaviour
 {
-    public class DoorToggleEventTrigger : MonoBehaviour
+    public string targetTag;
+    public GameEvent OnDoorToggle;
+
+    //  public TriggerEntity entityTag;
+
+    private void Awake()
     {
-        public string targetTag;
-        public GameEvent OnDoorToggle;
+        targetTag = targetTag.Trim();
+    }
 
-        private void Awake()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(targetTag))
         {
-            targetTag = targetTag.Trim();
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.CompareTag(targetTag))
-            {
-                OnDoorToggle?.Raise();
-            }
+            OnDoorToggle?.Raise();
         }
     }
 }

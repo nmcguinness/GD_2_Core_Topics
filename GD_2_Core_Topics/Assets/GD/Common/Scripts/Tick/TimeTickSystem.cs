@@ -8,6 +8,7 @@ namespace GD.Ticks
     public class TimeTickSystem : Singleton<TimeTickSystem>
     {
         #region Fields
+
         private readonly float maxTickInterval = 0.1f;
 
         public enum TickRateMultiplierType : sbyte
@@ -33,6 +34,7 @@ namespace GD.Ticks
         private UnityEvent OnTick_Resolution_4 = new UnityEvent();
 
         private UnityEvent OnTick_Resolution_8 = new UnityEvent();
+
         #endregion Fields
 
         private void Awake()

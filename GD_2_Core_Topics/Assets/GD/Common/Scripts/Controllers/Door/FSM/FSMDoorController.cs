@@ -42,13 +42,27 @@ public class FSMDoorController : MonoBehaviour
         Func<bool> HasReceivedCloseRequest() => () => IsToggleRequestReceived;
         Func<bool> HasFullyDisplaced() => () => currentDisplacement >= movementParameters.maximum;
 
+        //     Func<bool> IsSatisfied() => () => prices == bAffordable && menu.Supports("GF");
+
+        //Func<int, int, int> arithmeticFunc = add;
+        //Func<int, int, double> func2 = (x, y) => { return x / y; };
+
         stateMachine.SetState(closed);
     }
 
-    private bool HasReceivedOpenRequest()
-    {
-        return IsToggleRequestReceived;
-    }
+    //public void ProcessNumbers(List<int> a, List<int> b, Func<int, int, int> arithmetic)
+    //{
+    //    int sum;
+    //    for (int i = 0; i < a.Count; i++)
+    //    {
+    //        sum += arithmetic(a[i], b[i]);
+    //    }
+    //}
+
+    //public int add(int a, int b)
+    //{
+    //    return a + b;
+    //}
 
     private void Update()
     {
