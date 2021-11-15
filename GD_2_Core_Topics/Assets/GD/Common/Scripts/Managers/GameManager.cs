@@ -47,7 +47,7 @@ namespace GD.Managers
                 {
                     isPaused = value;
 
-                    //un-/pauses time within the game
+                    //un-/pauses time within the game FOR ALL scaled time objects
                     Time.timeScale = isPaused ? 0 : 1;
                 }
             }
