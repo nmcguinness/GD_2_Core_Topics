@@ -3,77 +3,98 @@ using UnityEngine;
 
 namespace GD.Managers
 {
-    public class GameManager : MonoBehaviour
+    /// <summary>
+    /// Inherit from this class to define what happens when the level starts, ends, and what toasts are shown at beginning and end
+    /// </summary>
+    /// <see cref="MyGame.MyGameManager"/>
+    public abstract class GameManager : MonoBehaviour
     {
         #region Fields
 
         [SerializeField]
         [Range(0, 10)]
-        private float startWaitSeconds;
+        [Tooltip("Time in seconds to wait to show start toasts. Once the game starts this value cannot be changed in real-time.")]
+        private float startLevelWaitSeconds = 1;
 
         [SerializeField]
         [Range(0, 10)]
-        private float playWaitSeconds;
+        [Tooltip("Time in seconds to before repeating the game loop which tests win/lose conditions. Once the game starts this value cannot be changed in real-time.")]
+        private float playLoopWaitSeconds = 0.5f;
 
         [SerializeField]
         [Range(0, 10)]
-        private float endWaitSeconds;
+        [Tooltip("Time in seconds to wait to show end toasts. Once the game starts this value cannot be changed in real-time.")]
+        private float endLevelWaitSeconds = 5;
 
-        private WaitForSeconds startWait;
-        private WaitForSeconds endWait;
-        private WaitForSeconds playLevelWait;
+        protected WaitForSeconds startWait;
+        protected WaitForSeconds endWait;
+        protected WaitForSeconds playLevelWait;
         private bool isPaused;
 
         #endregion Fields
 
-        // Start is called before the first frame update
-        private void Start()
+        #region Properties
+
+        public bool IsPaused
         {
-            //instanciate the waits used by start, play, or end functions
-            InitializeWaits();
+            get
+            {
+                return isPaused;
+            }
+            set
+            {
+                if (value != isPaused)
+                {
+                    isPaused = value;
 
-            //STUDENTCODE - 1
-            //SpawnNPC();
-            //SpawnPickups();
-            //SpawnPlayers();
-
-            //start the main loop that will perform start/end actions and check win/lose logic
-            StartCoroutine(GameLoop());
+                    //un-/pauses time within the game
+                    Time.timeScale = isPaused ? 0 : 1;
+                }
+            }
         }
 
-        //don't forget to stop any running code on destroy
+        #endregion Properties
+
+        /// <summary>
+        /// Stop all outstanding coroutines (e.g. any waits)
+        /// </summary>
         private void OnDestroy()
         {
             StopAllCoroutines();
         }
 
-        private void InitializeWaits()
+        /// <summary>
+        /// Get a reference to all wait timers used within the game and cache - cheaper than instanciating new WaitForSeconds() during gameplay
+        /// </summary>
+        protected virtual void InitializeWaits()
         {
-            startWait = new WaitForSeconds(startWaitSeconds);
-            endWait = new WaitForSeconds(endWaitSeconds);
-            playLevelWait = new WaitForSeconds(playWaitSeconds);
+            startWait = new WaitForSeconds(startLevelWaitSeconds);
+            endWait = new WaitForSeconds(endLevelWaitSeconds);
+            playLevelWait = new WaitForSeconds(playLoopWaitSeconds);
         }
 
-        private IEnumerator GameLoop()
+        /// <summary>
+        /// Core loop for the manager that loops until win/lose conditions are fulfilled or pause event occurs
+        /// </summary>
+        /// <returns></returns>
+        protected virtual IEnumerator GameLoop()
         {
             yield return StartCoroutine(StartLevel());
             yield return StartCoroutine(PlayLevel());
             yield return StartCoroutine(EndLevel());
         }
 
-        private IEnumerator StartLevel()
-        {
-            ShowStartToast();   //e.g. "Get Ready!...5..4..3..2..1"
-            yield return startWait;
-        }
-
-        private IEnumerator PlayLevel()
+        /// <summary>
+        /// Test win/lose logic and check for pause
+        /// </summary>
+        /// <returns></returns>
+        protected virtual IEnumerator PlayLevel()
         {
             //loop until some end condition is reached e.g. all objectives have been completed, all inventory items collected etc
             for (; ; ) //we will replace this infinite loop with some termination boolean expression e.g. while(isCompleted == false)
             {
                 //add the game logic here that tests for end conditions
-                CheckWinLose();                                                             //STUDENTCODE - 2
+                CheckWinLose();
 
                 //yield if the game is paused i.e. showing a menu
                 yield return new WaitWhile(() => isPaused);
@@ -83,63 +104,55 @@ namespace GD.Managers
             }
         }
 
-        private IEnumerator EndLevel()
+        /// <summary>
+        /// Call to play the game
+        /// </summary>
+        public virtual void Play()
         {
-            ShowWinLoseToast();   //e.g. "You won!"
-                                  //SaveGameData();       //e.g. asynchronously store using AssetDatabase, simple write JSON to file, or network save
-
-            //wait for N seconds to show the toast
-            yield return endWait;
-
-            //raise an event to show the main menu
-            //Event: MainMenu - Show
-            //     Debug.Log($"Goodbye at {Time.realtimeSinceStartup}");
+            IsPaused = true;
         }
 
-        public void Play()
+        /// <summary>
+        /// Call to pause the game
+        /// </summary>
+        public virtual void Pause()
         {
-            isPaused = false;
+            IsPaused = false;
         }
 
-        public void Pause()
+        /// <summary>
+        /// Call to pause the game
+        /// </summary>
+        public virtual void TogglePause()
         {
-            isPaused = true;
+            IsPaused = !isPaused;
         }
 
-        //we don't need to use the Update() but we can if we want to perform an operation at the normal update frequency of the game
-        private void Update()
-        {
-            //demo code which we will remove later and instead respond to the OnPause/OnResume event
+        /// <summary>
+        /// Perform operations to start level (e.g. load content)
+        /// </summary>
+        /// <returns></returns>
+        protected abstract IEnumerator StartLevel();
 
-            //
-            //if (Input.GetKeyDown(KeyCode.P))
-            //{
-            //    isPaused = !isPaused;
-            //}
+        /// <summary>
+        /// Override and show start toast/info
+        /// </summary>
+        protected abstract void ShowStartToast();
 
-            //pause and unpause the game (affects physics, animations)
-            if (isPaused)
-                Time.timeScale = 0;
-            else
-                Time.timeScale = 1;
-        }
+        /// <summary>
+        /// Override and check what conditions constitute win/lose
+        /// </summary>
+        protected abstract void CheckWinLose();
 
-        //STUDENTCODE - 3
-        private void ShowStartToast()
-        {
-            //       Debug.Log($"ShowStartToast at {Time.realtimeSinceStartup}");
-        }
+        /// <summary>
+        /// Override and show end toast/info
+        /// </summary>
+        protected abstract void ShowWinLoseToast();
 
-        //STUDENTCODE - 4
-        private void CheckWinLose()
-        {
-            //      Debug.Log($"CheckWinLose at {Time.realtimeSinceStartup}");
-        }
-
-        //STUDENTCODE - 5
-        private void ShowWinLoseToast()
-        {
-            //     Debug.Log($"ShowWinLoseToast at {Time.realtimeSinceStartup}");
-        }
+        /// <summary>
+        /// Perform operations to end level (e.g. serialize game state, take screenshot of level)
+        /// </summary>
+        /// <returns></returns>
+        protected abstract IEnumerator EndLevel();
     }
 }
