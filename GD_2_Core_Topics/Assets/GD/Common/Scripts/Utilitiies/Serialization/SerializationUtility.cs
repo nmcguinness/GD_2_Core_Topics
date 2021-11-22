@@ -16,7 +16,10 @@ namespace GD.Utilities
     {
         public static void Save(string name, object obj)
         {
-            var dataContractSerializer = new DataContractSerializer(obj.GetType()); //TODO - add check on Type to ensure its serializable
+            //"/Data/NPC/characteristics.xml"
+
+            var dataContractSerializer
+                = new DataContractSerializer(obj.GetType()); //TODO - add check on Type to ensure its serializable
             var xmlSettings = new XmlWriterSettings();
             xmlSettings.Indent = true;
             xmlSettings.IndentChars = "\t";
@@ -43,6 +46,8 @@ namespace GD.Utilities
     [DataContract]
     public class DemoSerializationTransform
     {
+        private string password;
+
         private Vector3 localTranslation;
         private Vector3 localRotation;
         private Vector3 localScale;
@@ -51,7 +56,10 @@ namespace GD.Utilities
         public Vector3 LocalTranslation
         {
             get { return localTranslation; }
-            set { localTranslation = value; }
+            set
+            {
+                localTranslation = value;
+            }
         }
 
         [DataMember]
