@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Selectable
-  - Fruit
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
@@ -14,8 +14,8 @@ TagManager:
   - Water
   - UI
   - TriggerBarrier
-  - 
-  - 
+  - Collectable
+  - Interactable
   - 
   - 
   - 

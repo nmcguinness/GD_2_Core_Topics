@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace GD.Events
 {
     public class BaseGameEventListener<P, E, R> : MonoBehaviour,
-        IGameEventListener<P> where P : struct where E : BaseGameEvent<P> where R : UnityEvent<P>
+        IGameEventListener<P> where E : BaseGameEvent<P> where R : UnityEvent<P>
     {
         [SerializeField]
         private E gameEvent;

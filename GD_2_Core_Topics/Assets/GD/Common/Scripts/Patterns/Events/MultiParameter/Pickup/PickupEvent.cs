@@ -1,22 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Customer multi-parameter event passing
+/// </summary>
+/// <see cref="https://www.youtube.com/watch?v=iXNwWpG7EhM"/>
 namespace GD.Events
 {
+    [Serializable]
     public enum PickupType : sbyte
     {
-        Health, Ammo, Money, Mana
+        Health, Ammo, Mana
     }
 
+    [Serializable]
     public struct PickupData
     {
-        private int value;
-        private PickupType type;
+        public int value;
+        public PickupType type;
+
+        public override string ToString()
+        {
+            return $"{type}, {value}";
+        }
     }
 
     [CreateAssetMenu(fileName = "PickupEvent", menuName = "Scriptable Objects/Events/Pickup")]
@@ -30,10 +37,6 @@ namespace GD.Events
 
     [Serializable]
     public class UnityPickupEvent : UnityEvent<PickupData>
-    {
-    }
-
-    public class PickupGameEventListener : BaseGameEventListener<PickupData, PickupEvent, UnityPickupEvent>
     {
     }
 }
