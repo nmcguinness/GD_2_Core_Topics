@@ -1,28 +1,34 @@
-﻿using System;
+﻿using GD.Events;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace GD.ScriptableTypes
 {
-    //  [CreateAssetMenu(fileName = "ListVariable", menuName = "Scriptable Objects/Collections/List")]
-    public class ListVariable<T> : NumberVariable<T>
+    public abstract class ListVariable<T> : NumberVariable<T>
     {
         [SerializeField]
         private List<T> list;
 
-        //Clear, Count, Add, Sort
-    }
+        public void Add(T obj)
+        {
+            list.Add(obj);
+        }
 
-    //ListWeaponPropertiesVariable
+        public void Remove(T obj)
+        {
+            list.Remove(obj);
+        }
 
-    //WeaponProperty struct (name, lethality, type, range)
+        public int Count()
+        {
+            return list.Count;
+        }
 
-    [CreateAssetMenu(fileName = "ListVariable",
-                menuName = "Scriptable Objects/Collections/List/String")]
-    public class ListStringVariable : ListVariable<string>
-    {
+        public void Clear()
+        {
+            list.Clear();
+        }
+
+        //Sort(comparable), Remove(predicate)
     }
 }

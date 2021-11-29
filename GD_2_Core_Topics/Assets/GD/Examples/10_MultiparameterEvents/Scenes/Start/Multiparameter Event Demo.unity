@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 68126650}
   - component: {fileID: 68126651}
   m_Layer: 0
-  m_Name: CollectablesManager
+  m_Name: InventoryManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae4be140eb2bf8479487962f448436f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickups: []
+  listPickupDataVariable: {fileID: 11400000, guid: c20e4afca3c1831469e21af197fdfdbb, type: 2}
 --- !u!114 &68126651
 MonoBehaviour:
   m_ObjectHideFlags: 0
