@@ -9,6 +9,9 @@ public class PlayerPickupBehaviour : MonoBehaviour
     [SerializeField]
     private PickupEvent pickupEvent;
 
+    [SerializeField]
+    private StringEvent stringEvent;
+
     private void OnTriggerEnter(Collider other)
     {
         if (pickupTargetLayer.OnLayer(other.gameObject))
@@ -16,6 +19,7 @@ public class PlayerPickupBehaviour : MonoBehaviour
             var pickup = other.gameObject.GetComponent<PickupBehaviour>();
             if (pickup != null)
             {
+                stringEvent.Raise("Something amazing happened!!!");
                 pickupEvent.Raise(pickup.PickupData);
                 Destroy(other.gameObject);
             }

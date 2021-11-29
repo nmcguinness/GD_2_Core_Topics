@@ -19,6 +19,7 @@ namespace GD.Events
     {
         public int value;
         public PickupType type;
+        public GameObject pickup;
 
         public override string ToString()
         {
@@ -29,10 +30,10 @@ namespace GD.Events
     [CreateAssetMenu(fileName = "PickupEvent", menuName = "Scriptable Objects/Events/Pickup")]
     public class PickupEvent : BaseGameEvent<PickupData>
     {
-        public override void Raise(PickupData parameters)
-        {
-            base.Raise(parameters);
-        }
+        //public override void Raise(PickupData parameters)
+        //{
+        //    base.Raise(parameters);
+        //}
     }
 
     [Serializable]

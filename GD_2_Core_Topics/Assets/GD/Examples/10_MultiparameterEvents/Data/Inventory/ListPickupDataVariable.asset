@@ -17,4 +17,17 @@ MonoBehaviour:
   Value:
     value: 0
     type: 0
-  list: []
+    pickup: {fileID: 0}
+  list:
+  - value: 10
+    type: 0
+    pickup: {fileID: 0}
+  - value: 10
+    type: 0
+    pickup: {fileID: 0}
+  - value: 25
+    type: 1
+    pickup: {fileID: 0}
+  - value: 5
+    type: 1
+    pickup: {fileID: 0}
