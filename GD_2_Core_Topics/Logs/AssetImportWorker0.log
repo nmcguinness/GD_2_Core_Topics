@@ -512,3 +512,4 @@ Received Import Request.
 Start importing Assets/GD/Examples/12_Navigation_Mesh [Under Construction]/Scenes/Start/NavMeshDemo.unity using Guid(e2a120790efd0944ba013e203bcc0844) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c398e54bcb7b35a492d3d485f2b9605') in 0.033243 seconds 
   Import took 0.039299 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
