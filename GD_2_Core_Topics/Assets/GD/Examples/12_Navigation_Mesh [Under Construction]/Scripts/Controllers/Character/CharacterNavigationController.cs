@@ -48,26 +48,39 @@ namespace ARVR.Controllers
             animator = GetComponent<Animator>();
         }
 
-        public void OnSelectWaypoint(InputAction.CallbackContext context)
-        {
-            if (isSelected)
-            {
-                ClickDestination();
-            }
-        }
-
+        /// <summary>
+        /// Called when a player selects the on-screen player avatar
+        /// </summary>
+        /// <param name="context"></param>
         public void OnSelectPlayer(InputAction.CallbackContext context)
         {
+            //if player is selected and we click and select a different player
             if (currentlySelectedGameObject.Value != null && currentlySelectedGameObject.Value != gameObject)
             {
+                //de-select current
                 currentlySelectedGameObject.Value = null;
                 SetSelected(false);
             }
 
+            //set selected new player object
             SetSelected(true);
             currentlySelectedGameObject.Value = gameObject;
         }
 
+        /// <summary>
+        /// Called when player selects a destination point on the navmesh
+        /// </summary>
+        /// <param name="context"></param>
+        public void OnSelectWaypoint(InputAction.CallbackContext context)
+        {
+            //if a player is selected then determine destination
+            if (isSelected)
+                ClickDestination();
+        }
+
+        /// <summary>
+        /// Move selected player towards active destination point
+        /// </summary>
         private void Update()
         {
             if (Vector3.Distance(navMeshAgent.destination, transform.position) <= navMeshAgent.stoppingDistance)
@@ -79,11 +92,18 @@ namespace ARVR.Controllers
 
         #region Actions -  Set/Clear destination and waypoint
 
+        /// <summary>
+        /// Sets navmesh target
+        /// </summary>
+        /// <param name="target"></param>
         private void SetDestination(Vector3 target)
         {
             navMeshAgent.SetDestination(target);
         }
 
+        /// <summary>
+        /// Tests if selector ray intersects with valid destination target
+        /// </summary>
         private void ClickDestination()
         {
             selector.Check(rayProvider.CreateRay());
@@ -97,6 +117,9 @@ namespace ARVR.Controllers
             }
         }
 
+        /// <summary>
+        /// Set the next naviagable waypoint
+        /// </summary>
         private void SetWaypoint()
         {
             waypointPrefab.SetActive(true);
@@ -104,12 +127,19 @@ namespace ARVR.Controllers
             waypointPrefab.transform.position = navMeshAgent.destination;
         }
 
+        /// <summary>
+        /// Disable waypoint indicator and set waypoint transform back to attached player
+        /// </summary>
         private void ClearWaypoint()
         {
             waypointPrefab.SetActive(false);
             waypointPrefab.transform.SetParent(transform);
         }
 
+        /// <summary>
+        /// Set selected and show selection indicator around the player
+        /// </summary>
+        /// <param name="isSelected"></param>
         public void SetSelected(bool isSelected)
         {
             this.isSelected = isSelected;
