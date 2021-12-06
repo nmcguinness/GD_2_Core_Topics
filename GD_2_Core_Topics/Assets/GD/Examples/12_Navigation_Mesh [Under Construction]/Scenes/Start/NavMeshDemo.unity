@@ -342,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369436401}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -11.24, y: 0.5038965, z: 8.15}
+  m_LocalPosition: {x: -13.14, y: 0.6, z: -1.63}
   m_LocalScale: {x: 4.1779, y: 1, z: 1}
   m_Children:
   - {fileID: 1962235706}
@@ -438,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421251986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.32, y: 0.5038965, z: 9.64}
+  m_LocalPosition: {x: 3.85, y: 0.5038965, z: 3.24}
   m_LocalScale: {x: 4.1779, y: 1, z: 1}
   m_Children:
   - {fileID: 1061625215}
@@ -682,7 +682,6 @@ GameObject:
   - component: {fileID: 971988576}
   - component: {fileID: 971988575}
   - component: {fileID: 971988579}
-  - component: {fileID: 971988578}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -748,25 +747,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971988574}
-  m_LocalRotation: {x: -0.30005527, y: -0.018029686, z: 0.00567258, w: -0.9537346}
-  m_LocalPosition: {x: -0.20833975, y: 13.644592, z: -35.247616}
+  m_LocalRotation: {x: 0.4524274, y: -0.006688269, z: 0.0033935069, w: 0.8917697}
+  m_LocalPosition: {x: -0.25151813, y: 18.93691, z: -29.239252}
   m_LocalScale: {x: 1, y: 1.068747, z: 0.93626314}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &971988578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971988574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &971988579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,6 +1025,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061625214}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1100257358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 129800, guid: 1d3b1a1513de66247974634911345b98, type: 3}
+  m_PrefabInstance: {fileID: 1673854245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1100257359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8783901106399086402, guid: 1d3b1a1513de66247974634911345b98, type: 3}
+  m_PrefabInstance: {fileID: 1673854245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100257358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89978c1eb07e6a44ac3edea40a11811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1100257360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100257358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 0ac0a4f70e32c5e4e80f129dcdf8eaca, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1100257359}
+        m_TargetAssemblyTypeName: ARVR.Controllers.CharacterNavigationController,
+          Assembly-CSharp
+        m_MethodName: OnSelectPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9c780306-f442-4cc0-b66a-1f55d2338b01
+    m_ActionName: StandardControls/SelectPlayer[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1100257359}
+        m_TargetAssemblyTypeName: ARVR.Controllers.CharacterNavigationController,
+          Assembly-CSharp
+        m_MethodName: OnSelectWaypoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fb425ce8-77e3-4c71-a13e-32e41dc0b491
+    m_ActionName: StandardControls/SelectWaypoint[/Mouse/rightButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: StandardControls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1102064123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586860962}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -10.53, y: 0.5038965, z: -11.86}
+  m_LocalPosition: {x: -7.91, y: 0.5038965, z: -11.86}
   m_LocalScale: {x: 4.1779, y: 1, z: 1}
   m_Children:
   - {fileID: 2040334967}
@@ -1378,7 +1445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 427610, guid: 1d3b1a1513de66247974634911345b98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.1874714
+      value: -2.157
       objectReference: {fileID: 0}
     - target: {fileID: 427610, guid: 1d3b1a1513de66247974634911345b98, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1420,10 +1487,22 @@ PrefabInstance:
       propertyPath: currentCamera
       value: 
       objectReference: {fileID: 971988576}
+    - target: {fileID: 884896436, guid: 1d3b1a1513de66247974634911345b98, type: 3}
+      propertyPath: m_Center.y
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 8705768898172375983, guid: 1d3b1a1513de66247974634911345b98, type: 3}
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: a3422ad278cd9a94aa3da8e6bff9deea, type: 3}
+    - target: {fileID: 8705768898172375983, guid: 1d3b1a1513de66247974634911345b98, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783901106399086402, guid: 1d3b1a1513de66247974634911345b98, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8783901106399086402, guid: 1d3b1a1513de66247974634911345b98, type: 3}
       propertyPath: sceneAnchor
       value: 
