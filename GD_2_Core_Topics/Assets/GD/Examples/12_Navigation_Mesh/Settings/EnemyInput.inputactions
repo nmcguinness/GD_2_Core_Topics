@@ -1,0 +1,87 @@
+{
+    "name": "EnemyInput",
+    "maps": [
+        {
+            "name": "Standard",
+            "id": "7808f7db-f7e7-485a-9a61-fd25733243fd",
+            "actions": [
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "50ef7301-3046-4fb0-a1e6-637ad251202c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "46617334-bebc-4fe8-91fd-5bfe3cd807e5",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Flying",
+            "id": "ea60a269-4746-47a5-a3b7-c72ced7fd7c3",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "61496c13-6667-4875-959e-74bd7aab0da9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "24d82b57-7b04-4c48-9098-dd5cab32a908",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Swimming",
+            "id": "16d8a038-d9d0-4ff7-9a94-ebc5b1aee7ac",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "908bbf5a-3631-4df7-b2b6-82235cbb9a36",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "56e7b0fa-d2ca-4c14-9bcc-6635a2ec852b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
