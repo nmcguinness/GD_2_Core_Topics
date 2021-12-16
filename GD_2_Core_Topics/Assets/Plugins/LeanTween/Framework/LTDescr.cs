@@ -2303,6 +2303,11 @@ public class LTDescr
 
 		return this;
 	}
+
+    public void setEase(object tweenType)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 //}
